@@ -4,22 +4,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-public class main {
-	public static void main(String args[]) throws Exception {
-
-
-
-
-	}
-}
-
-private class AnalyticsCounter {
-	/*private static int headacheCount = 0;
+public class AnalyticsCounter {
+	private static int headacheCount = 0;
 	private static int rashCount = 0;
-	private static int pupilCount = 0;*/
+	private static int pupilCount = 0;
 	
-
-
+	public static void main(String args[]) throws Exception {
+		// first get input
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 
@@ -39,7 +30,7 @@ private class AnalyticsCounter {
 				pupilCount++;
 			}
 
-			line = reader.readLine();
+			line = reader.readLine();	
 		}
 		
 		// next generate output
@@ -49,4 +40,4 @@ private class AnalyticsCounter {
 		writer.write("dialated pupils: " + pupilCount + "\n");
 		writer.close();
 	}
-
+}
