@@ -10,7 +10,7 @@ public class AnalyticsCounter {
 	private static int pupilCount = 0;
 	
 	public static void main(String args[]) throws Exception {
-		// first get input
+
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 
@@ -20,7 +20,7 @@ public class AnalyticsCounter {
 			i++;
 			System.out.println("symptom from file: " + line);
 			if (line.equals("headache")) {
-				headCount++;
+				headacheCount++;
 				System.out.println("number of headaches: " + headCount);
 			}
 			else if (line.equals("rush")) {
