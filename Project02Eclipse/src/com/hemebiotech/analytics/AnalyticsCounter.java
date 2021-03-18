@@ -10,6 +10,7 @@ public class AnalyticsCounter {
 	/* -------------------------------------------METHODE DE LECTURE-------------------------------------*/
 
 	// void car je n'attends pas un retour précis mais pourquoi utiliser static dans ce contexte?
+	// dois je fermer cette methode de lecture? a quoi sert le deuxieme ligne.
 	static void lecture(){
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
@@ -21,6 +22,7 @@ public class AnalyticsCounter {
 		// déplacement des variables au plus près du blocs qui les utilise
 
 		//j'ai enlevé private et static, cela a l'air de mieux marché mais je sais pas pourquoi
+		//le compilateur me renvoi des erreur cannot find symbol varaible pk?
 		int headacheCount = 0;
 		int rashCount = 0;
 		int pupilCount = 0;
@@ -48,10 +50,47 @@ public class AnalyticsCounter {
 	/* -----------------------------------------METTRE EN ORDRE ALPHA----------------------------------*/
 
 	static void alphabetique(){
+      /* j'ai trouver des exemples de type :
+      Java Program to Sort Names in an Alphabetical Order
 
+import java.io.*;
+
+class GFG {
+    public static void main(String[] args)
+    {
+        // storing input in variable
+        int n = 4;
+
+        // create string array called names
+        String names[]
+            = { "Rahul", "Ajay", "Gourav", "Riya" };
+        String temp;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+
+                // to compare one string with other strings
+                if (names[i].compareTo(names[j]) > 0) {
+                    // swapping
+                    temp = names[i];
+                    names[i] = names[j];
+                    names[j] = temp;
+                }
+            }
+        }
+
+        // print output array
+        System.out.println(
+            "The names in alphabetical order are: ");
+        for (int i = 0; i < n; i++) {
+            System.out.println(names[i]);
+        }
+    }
+}
 
 
 	}
+
+     mais pour le coup je comprend pas comment cela marche  */
 
 	/*-----------------------------------SORTIR DANS UN FICHIERS RESULT--------------------------------*/
 
