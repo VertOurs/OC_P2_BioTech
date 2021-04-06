@@ -44,12 +44,25 @@ public class AnalyticsCounter {
 
 	/*-----------------------------------SORTIR DANS UN FICHIERS RESULT--------------------------------*/
 
-	public void ecriture(){
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+	public void ecriture(List<String> listlecture) throws IOException{
+
+	    File file = new File("result.out");
+
+	    try(BufferedWriter ecrire = new BufferedWriter(new FileWriter(file))){
+            while (listlecture != null) {
+                ecrire.write(String.valueOf(listlecture));
+            }
+                ecrire.close();
+
+	    } catch(IOException e){
+	        e.printStackTrace();
+
+        }
+
+
+
+
+
 	}
 
 
