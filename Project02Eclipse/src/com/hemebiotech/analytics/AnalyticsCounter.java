@@ -1,37 +1,10 @@
 package com.hemebiotech.analytics;
 
 import java.io.*;
+import java.util.Collections;
 import java.util.List;
 
 public class AnalyticsCounter {
-
-   /* 		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
-			line = reader.readLine();	// get another symptom
-		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
-	}
-	/*-----------------------------------------------MY CODE--------------------------------------------*/
 
     public List<String> reading() {
 	    ISymptomReader read = new ReadSymptomDataFromFile("symptoms.txt");
@@ -40,21 +13,38 @@ public class AnalyticsCounter {
         return listOfSymptoms;
     }
 
-    public int countOccurences(List<String> listOfSymptoms) {
+    public int countOccurences(String countOccu,List<String> listOfSymptoms) {
+        int nbOccurence = 0;
+
         for(int i = 0; i<listOfSymptoms.size(); i++){
             String count = listOfSymptoms.get(i);
+            if (count == countOccu ){
+                nbOccurence++;
+            }
         }
-        return 
+        return nbOccurence;
     }
 
-    static void countAllOccurences() {
+    public void countAllOccurences() {
+        return;
     }
 
-    static void alphaOrder() {
+    public List<String> alphaOrder(List<String> listOfSymptoms) {
+        Collections.sort(listOfSymptoms);
+
+        return listOfSymptoms;
     }
 
-    static void writing() {
+    static void writing(List<String>listOfSymptoms) throws IOException {
+        File file = new File("result.out");
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+
+        for(String i : listOfSymptoms){
+            writer.write(i);
+        }
+        writer.close();
     }
 
 
 }
+// ligne 43 avec utilisation ligne 48 : je ne comprends pas ce paramètre (countOccu) d'ou sors t il?
