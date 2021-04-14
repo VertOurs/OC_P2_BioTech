@@ -6,8 +6,12 @@ import java.util.*;
 public class AnalyticsCounter {
 	/* -------------------------------------------METHODE DE LECTURE-------------------------------------*/
 
-	public List<String> lecture() throws IOException {
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
+	public List<String> lecture() {
+		ISymptomReader  a = new ReadSymptomDataFromFile("symptoms.txt");
+
+		 List<String> listlecture = a.GetSymptoms();
+
+		/*BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 
 		List<String> listlecture = new ArrayList();
 		String line = reader.readLine();
@@ -17,7 +21,7 @@ public class AnalyticsCounter {
 			listlecture.add(line);
 			line = reader.readLine();
 		}
-
+*/
 		return	listlecture;
 	}
 	/*--------------------------------------------METHODE COMPTAGE DES OCCURENCES------------------------*/
@@ -33,24 +37,36 @@ public class AnalyticsCounter {
                 nbOccurence++;
             }
         }
+        return nbOccurence;
     }
+
+	/* Compter toutes les occurences*/
+
+	//apprendre les : map, HashMap, treeMap
 
 	/* -----------------------------------------METTRE EN ORDRE ALPHA----------------------------------*/
 
-	//public void alphabetique(){}
+
+	public List<String> alphabetique(List<String> listlecture){
+		Collections.sort(listlecture);
+
+		return listlecture;
+	}
 
 
 
 
 	/*-----------------------------------SORTIR DANS UN FICHIERS RESULT--------------------------------*/
 
-	public void ecriture(List<String> listlecture) throws IOException{
+	public void ecriture(List<String> listlecture) {
 
 	    File file = new File("result.out");
 
-	    try(BufferedWriter ecrire = new BufferedWriter(new FileWriter(file))){
-            while (listlecture != null) {
-                ecrire.write(String.valueOf(listlecture));
+	    try{
+				BufferedWriter ecrire = new BufferedWriter(new FileWriter(file));
+
+	    	for (int i = 0; i< listlecture.size(); i++) {
+                ecrire.write(listlecture.get(i));
             }
                 ecrire.close();
 
