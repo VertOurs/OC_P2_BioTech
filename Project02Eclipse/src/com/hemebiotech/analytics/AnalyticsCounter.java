@@ -15,6 +15,9 @@ public class AnalyticsCounter {
 
 		List<String> listlecture = new ArrayList();
 		String line = reader.readLine();
+		
+
+
 
 
 		while (line != null){
@@ -24,6 +27,7 @@ public class AnalyticsCounter {
 */
 		return	listlecture;
 	}
+
 	/*--------------------------------------------METHODE COMPTAGE DES OCCURENCES------------------------*/
 
 	public int compterLesOccurences(String compteOccurences, List<String> listlecture) {
@@ -77,7 +81,6 @@ public class AnalyticsCounter {
 
 
 	}
-
 
 
 
