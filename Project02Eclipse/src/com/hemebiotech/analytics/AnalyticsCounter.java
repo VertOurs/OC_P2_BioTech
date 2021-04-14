@@ -1,18 +1,16 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
+import java.util.List;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
+
 	
 	public static void main(String args[]) throws Exception {
 		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
+
 		String line = reader.readLine();
+
 
 		int i = 0;	// set i to 0
 		int headCount = 0;	// counts headaches
@@ -40,4 +38,26 @@ public class AnalyticsCounter {
 		writer.write("dialated pupils: " + pupilCount + "\n");
 		writer.close();
 	}
+
+    static List<String> reading() throws FileNotFoundException {
+	    BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
+
+	    for(int i = 0; i< )
+
+
+    }
+
+    static void countOccurences() {
+    }
+
+    static void countAllOccurences() {
+    }
+
+    static void alphaOrder() {
+    }
+
+    static void writing() {
+    }
+
+
 }
