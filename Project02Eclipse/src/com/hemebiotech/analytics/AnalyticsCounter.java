@@ -5,14 +5,7 @@ import java.util.List;
 
 public class AnalyticsCounter {
 
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-
-		String line = reader.readLine();
-
-
-		int i = 0;	// set i to 0
+   /* 		int i = 0;	// set i to 0
 		int headCount = 0;	// counts headaches
 		while (line != null) {
 			i++;	// increment i
@@ -38,16 +31,20 @@ public class AnalyticsCounter {
 		writer.write("dialated pupils: " + pupilCount + "\n");
 		writer.close();
 	}
+	/*-----------------------------------------------MY CODE--------------------------------------------*/
 
-    static List<String> reading() throws FileNotFoundException {
-	    BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
+    public List<String> reading() {
+	    ISymptomReader read = new ReadSymptomDataFromFile("symptoms.txt");
+        List<String> listOfSymptoms = read.GetSymptoms();
 
-	    for(int i = 0; i< )
-
-
+        return listOfSymptoms;
     }
 
-    static void countOccurences() {
+    public int countOccurences(List<String> listOfSymptoms) {
+        for(int i = 0; i<listOfSymptoms.size(); i++){
+            String count = listOfSymptoms.get(i);
+        }
+        return 
     }
 
     static void countAllOccurences() {
