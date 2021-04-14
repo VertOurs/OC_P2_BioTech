@@ -58,22 +58,19 @@ public class AnalyticsCounter {
 
 	/*-----------------------------------SORTIR DANS UN FICHIERS RESULT--------------------------------*/
 
-	public void ecriture(List<String> listlecture) {
+	public void ecriture(List<String> listlecture) throws IOException {
 
 	    File file = new File("result.out");
+		BufferedWriter ecrire = new BufferedWriter(new FileWriter(file));
 
-	    try{
-				BufferedWriter ecrire = new BufferedWriter(new FileWriter(file));
-
-	    	for (int i = 0; i< listlecture.size(); i++) {
-                ecrire.write(listlecture.get(i));
+	    	for (String i : listlecture) {
+                ecrire.write(i);
             }
                 ecrire.close();
 
-	    } catch(IOException e){
-	        e.printStackTrace();
+	    }
 
-        }
+
 
 
 
@@ -84,4 +81,4 @@ public class AnalyticsCounter {
 
 
 
-}
+
