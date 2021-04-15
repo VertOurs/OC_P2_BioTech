@@ -44,9 +44,18 @@ public class AnalyticsCounter {
         return nbOccurence;
     }
 
-	/* Compter toutes les occurences*/
+	/*------------------------------------ Compter toutes les occurences-------------------------------*/
 
-	//apprendre les : map, HashMap, treeMap
+	public Map<String, Integer> compterToutesLesOccurences (int nbOccurence, List<String> listlecture){
+
+		Map<String, Integer> carte = new TreeMap<>();
+
+		for(int i = 0; i<listlecture.size(); i++){
+			carte.put( listlecture.get(i) , compterLesOccurences());
+		}
+
+		return carte;
+	}
 
 	/* -----------------------------------------METTRE EN ORDRE ALPHA----------------------------------*/
 
