@@ -1,15 +1,18 @@
 package com.hemebiotech.analytics;
 
-import java.io.FileNotFoundException;
+import java.util.*;
 
-import static com.hemebiotech.analytics.AnalyticsCounter.*;
+
 
 public class Main {
-    public static void main(String[] args) {
-        /*reading();
-        countOccurences();
-        countAllOccurences();
-        alphaOrder();
-        writing();*/
+    public static void main(String[] args) throws Exception{
+
+        AnalyticsCounter callAnalyticsClass = new AnalyticsCounter();
+
+        List<String> readingSymptomsFile = callAnalyticsClass.reading();
+        Map<String, Integer> SymptomsClassifiedWithOrrurences = callAnalyticsClass.countAllOccurences(readingSymptomsFile);
+
+        callAnalyticsClass.writing(SymptomsClassifiedWithOrrurences);
+
     }
 }
