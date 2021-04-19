@@ -16,9 +16,8 @@ public class AnalyticsCounter {
     public int countOccurences(String countOccu,List<String> listOfSymptoms) {
         int nbOccurence = 0;
 
-        for(int i = 0; i<listOfSymptoms.size(); i++){
-            String count = listOfSymptoms.get(i);
-            if (count == countOccu ){
+        for (String count : listOfSymptoms) {
+            if (count.equals(countOccu)) {
                 nbOccurence++;
             }
         }
@@ -28,16 +27,13 @@ public class AnalyticsCounter {
     public Map<String, Integer> countAllOccurences(List<String> listOfSymptoms) {
         Map<String, Integer> map = new TreeMap<>();
 
-        for(int i = 0; i< listOfSymptoms.size(); i++){
-            String symptom = listOfSymptoms.get(i);
-
-            if(map.containsKey(symptom)){
+        for (String symptom : listOfSymptoms) {
+            if (map.containsKey(symptom)) {
                 int nbOccurence = map.get(symptom);
-                nbOccurence = nbOccurence+1;
+                nbOccurence = nbOccurence + 1;
                 map.replace(symptom, nbOccurence);
-            }
-            else{
-                map.put(symptom,1);
+            } else {
+                map.put(symptom, 1);
             }
         }
         return map;
@@ -55,7 +51,7 @@ public class AnalyticsCounter {
 
         for(String i : key){
             int symptoms = mapOfSymptoms.get(i);
-            writer.write(i+" = "+String.valueOf(symptoms)+"\n");
+            writer.write(i+" = "+symptoms+"\n");
         }
         writer.close();
     }
