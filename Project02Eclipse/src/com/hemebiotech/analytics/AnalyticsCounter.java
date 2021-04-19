@@ -1,8 +1,8 @@
 package com.hemebiotech.analytics;
 
 import java.io.*;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
 
 public class AnalyticsCounter {
 
@@ -25,8 +25,22 @@ public class AnalyticsCounter {
         return nbOccurence;
     }
 
-    public void countAllOccurences() {
-        return;
+    public Map<String, Integer> countAllOccurences(List<String> listOfSymptoms) {
+        Map<String, Integer> map = new TreeMap<>();
+
+        for(int i = 0; i< listOfSymptoms.size(); i++){
+            String symptom = listOfSymptoms.get(i);
+
+            if(map.containsKey(symptom)){
+                int nbOccurence = map.get(symptom);
+                nbOccurence = nbOccurence+1;
+                map.replace(symptom, nbOccurence);
+            }
+            else{
+                map.put(symptom,1);
+            }
+        }
+        return map;
     }
 
     public List<String> alphaOrder(List<String> listOfSymptoms) {
@@ -35,16 +49,14 @@ public class AnalyticsCounter {
         return listOfSymptoms;
     }
 
-    static void writing(List<String>listOfSymptoms) throws IOException {
-        File file = new File("result.out");
-        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+    static void writing(Map<String, Integer> mapOfSymptoms) throws IOException {
+        FileWriter writer = new FileWriter("result.out");
+        Set<String> key = mapOfSymptoms.keySet();
 
-        for(String i : listOfSymptoms){
-            writer.write(i);
+        for(String i : key){
+            int symptoms = mapOfSymptoms.get(i);
+            writer.write(i+" = "+String.valueOf(symptoms)+"\n");
         }
         writer.close();
     }
-
-
 }
-// ligne 43 avec utilisation ligne 48 : je ne comprends pas ce paramètre (countOccu) d'ou sors t il?
