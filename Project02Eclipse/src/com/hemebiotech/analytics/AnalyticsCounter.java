@@ -2,10 +2,17 @@ package com.hemebiotech.analytics;
 
 import java.io.*;
 import java.util.*;
+/**
+ * this class reads data from a file then arranges them alphabetically by adding the number of occurrences and finally prints them in another file.
+ *Currently two methods are not used / it is used to decompose the count of an occurrence and the arrangement in alphabetical order.
+ *
+ * **/
 
 
 public class AnalyticsCounter {
-
+/**
+ * retrieve the data from "symptoms.txt" and cross references it as a list.
+ **/
     public List<String> reading() {
 	    ISymptomReader read = new ReadSymptomDataFromFile("symptoms.txt");
         List<String> listOfSymptoms = read.GetSymptoms();
@@ -23,7 +30,9 @@ public class AnalyticsCounter {
         }
         return nbOccurence;
     }
-
+/**
+ * @return Map sorts in alphabetical order and displays the occurrences of each symptom
+ **/
     public Map<String, Integer> countAllOccurences(List<String> listOfSymptoms) {
         Map<String, Integer> map = new TreeMap<>();
 
@@ -44,7 +53,9 @@ public class AnalyticsCounter {
 
         return listOfSymptoms;
     }
-
+/**
+ * @return a file including all the symptoms of the Map and the number of occurrences associated with each of them.
+ **/
     static void writing(Map<String, Integer> mapOfSymptoms) throws IOException {
         FileWriter writer = new FileWriter("result.out");
         Set<String> key = mapOfSymptoms.keySet();
