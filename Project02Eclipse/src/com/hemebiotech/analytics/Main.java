@@ -1,5 +1,6 @@
 package com.hemebiotech.analytics;
 
+import java.io.IOException;
 import java.util.*;
 /**
  *  This method is made up of three calls to the methods contained in the AnalyticsCounter class.
@@ -9,14 +10,24 @@ import java.util.*;
 
 
 public class Main {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) {
 
         AnalyticsCounter callAnalyticsClass = new AnalyticsCounter();
 
         List<String> readingSymptomsFile = callAnalyticsClass.reading();
+
         Map<String, Integer> SymptomsClassifiedWithOrrurences = callAnalyticsClass.countAllOccurences(readingSymptomsFile);
 
-        callAnalyticsClass.writing(SymptomsClassifiedWithOrrurences);
+        List<String> order = callAnalyticsClass.alphaOrder(readingSymptomsFile);
+
+        try {
+            callAnalyticsClass.writing(SymptomsClassifiedWithOrrurences);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        // appel alpha
 
     }
 }
