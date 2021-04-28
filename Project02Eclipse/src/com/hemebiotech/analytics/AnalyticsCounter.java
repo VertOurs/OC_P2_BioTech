@@ -80,7 +80,7 @@ public class AnalyticsCounter {
     public void writing(Map<String, Integer> mapOfSymptoms) throws IOException {
         FileWriter writer = new FileWriter("result.out");
         Set<String> key = mapOfSymptoms.keySet();
-// list doublon dans une set pas possible.
+
         for(String i : key){
             int symptoms = mapOfSymptoms.get(i);
             writer.write(i+" = "+symptoms+"\n");
